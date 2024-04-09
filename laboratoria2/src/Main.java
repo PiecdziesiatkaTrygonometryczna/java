@@ -2,14 +2,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
-
-
     public static void calculateAreas(Walec walec) {
         System.out.println("Pole powierzchni podstawy: " + walec.calculateBaseArea());
         System.out.println("Pole powierzchni bocznej: " + walec.calculateSideArea());
         System.out.println("Pole powierzchni całkowitej: " + walec.calculateTotalArea());
     }
-
     public static void displayGreeting() {
         System.out.println("Witaj w programie wykonującym operacje na Bryle geometrycznej - Walcu. Komendy:");
         System.out.println("/get - wyświetl parametry Walca");
@@ -18,7 +15,6 @@ public class Main {
         System.out.println("/volume - oblicz objętość Walca");
         System.out.println("/exit - wyjdź z programu");
     }
-
     public static void setCylinder(Walec walec) {
         Scanner scanner = new Scanner(System.in);
         boolean continueInput = true;
@@ -44,7 +40,6 @@ public class Main {
             }
         }
     }
-
     public static void main(String[] args) {
         Walec walec = new Walec();
         displayGreeting();
@@ -54,12 +49,15 @@ public class Main {
         while (flag) {
             String option = scanner.nextLine().toLowerCase();
             switch (option) {
-                case "/set": setCylinder(walec); break;
-                case "/get": System.out.println("Promień podstawy: " + walec.getBaseRadius().toString() +
-                        "\nWysokość: " + walec.getHeight().toString()); break;
-                case "/area": calculateAreas(walec); break;
-                case "/volume": System.out.println("Objętość: " + walec.calculateVolume()); break;
-                case "/exit": flag = false; System.out.println("Żegnamy!"); break;
+                case "/set" -> setCylinder(walec);
+                case "/get" -> System.out.println("Promień podstawy: " + walec.getBaseRadius().toString() +
+                        "\nWysokość: " + walec.getHeight().toString());
+                case "/area" -> calculateAreas(walec);
+                case "/volume" -> System.out.println("Objętość: " + walec.calculateVolume());
+                case "/exit" -> {
+                    flag = false;
+                    System.out.println("Żegnamy!");
+                }
             }
         }
     }
