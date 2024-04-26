@@ -16,13 +16,25 @@ public class Kalendarz {
         this.niedziela = niedziela;
     }
 
+    public ArrayList<Spotkanie> spotkaniaZPriorytetem(ArrayList<Spotkanie> dzien, int priorytet) {
+        ArrayList<Spotkanie> spotkania = new ArrayList<>();
+
+        for (Spotkanie spotkanie : dzien) {
+            if (spotkanie.getPriorytet() == priorytet) {
+                spotkania.add(spotkanie);
+            }
+        }
+
+        return spotkania;
+    }
+
     private ArrayList<Spotkanie> poniedzialek = new ArrayList<>();
     private ArrayList<Spotkanie> wtorek = new ArrayList<>();
     private ArrayList<Spotkanie> sroda = new ArrayList<>();
-    public ArrayList<Spotkanie> czwartek = new ArrayList<>();
-    public ArrayList<Spotkanie> piatek = new ArrayList<>();
-    public ArrayList<Spotkanie> sobota = new ArrayList<>();
-    public ArrayList<Spotkanie> niedziela = new ArrayList<>();
+    private ArrayList<Spotkanie> czwartek = new ArrayList<>();
+    private ArrayList<Spotkanie> piatek = new ArrayList<>();
+    private ArrayList<Spotkanie> sobota = new ArrayList<>();
+    private ArrayList<Spotkanie> niedziela = new ArrayList<>();
 
     public ArrayList<Spotkanie> getPoniedzialek() {
         return poniedzialek;
