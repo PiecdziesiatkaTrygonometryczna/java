@@ -129,8 +129,8 @@ public class Main {
     }
 
     public static void wyswietlSpotkaniaDlaDniaZPriorytetem(Kalendarz kalendarz) {
-        int day = wybierzDzien();
-        int priorytet = pobierzPriorytet();
+    int day = wybierzDzien();
+    int priorytet = pobierzPriorytet();
 
         ArrayList<Spotkanie> spotkania = new ArrayList<>();
 
@@ -213,7 +213,7 @@ public class Main {
         System.out.println("Witaj w kalendarzu");
         boolean flag = true;
         while (flag) {
-            displayGreeing();
+        displayGreeing();
             Scanner scanner = new Scanner(System.in);
             int userChoice = scanner.nextInt();
             scanner.nextLine();
@@ -224,7 +224,7 @@ public class Main {
                 case 4 -> wyswietlSpotkaniaDlaDniaZPriorytetem(kalendarz);
                 case 5 -> wyswietlSpotkaniaOdDanejGodziny(kalendarz);
                 case 6 -> flag = false;
-            }
+        }
         }
     }
 }
