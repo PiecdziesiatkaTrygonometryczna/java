@@ -130,6 +130,7 @@ obiekt
 
 Jeśli mamy zmienną typu referencyjnego chleb, tylko i wyłącznie obiekt klasy
 
+Pieczywo nowaZmienna = ?
 !! nowaZmienna = new Pieczywo();
 nowaZmienna = new Chleb();
 nowaZmienna = new Tost();
