@@ -134,3 +134,8 @@ Pieczywo nowaZmienna = ?
 !! nowaZmienna = new Pieczywo();
 nowaZmienna = new Chleb();
 nowaZmienna = new Tost();
+
+Dostarczany kolejnaZmienna = ?
+kolejnaZmienna = new Pieczywo();
+kolejnaZmienna = new Chleb();
+kolejnaZMienna = new Tost();
