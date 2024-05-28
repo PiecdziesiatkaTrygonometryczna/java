@@ -54,18 +54,23 @@ public class Main {
         String ulica = scanner.nextLine();
         System.out.print("Podaj numer domu: ");
         int numerDomu = scanner.nextInt();
+        scanner.nextLine();
         System.out.print("Podaj numer mieszkania: ");
         int numerMieszkania = scanner.nextInt();
+        scanner.nextLine();
         System.out.print("Podaj miejscowosć: ");
         String miejscowosc = scanner.nextLine();
         System.out.print("Podaj kod pocztowy (w formacie xx-xxx): ");
         String kodPocztowy = scanner.nextLine();
         System.out.print("Podaj powierzchnię: ");
         double powierzchnia = scanner.nextDouble();
+        scanner.nextLine();
         System.out.print("Podaj numer piętra: ");
         int numerPietra = scanner.nextInt();
+        scanner.nextLine();
         System.out.print("Podaj cenę: ");
         int cena = scanner.nextInt();
+        scanner.nextLine();
         System.out.print("Podaj datę obowiązywania oferty (YYYY-MM-DD): ");
         LocalDate dataObowiazywaniaOferty = LocalDate.parse(scanner.nextLine());
 
@@ -122,30 +127,18 @@ public class Main {
             scanner.nextLine();
 
             switch (userChoice) {
-                case 1:
-                    dodajOferteDomu(scanner, listaOfert);
-                    break;
-                case 2:
-                    dodajOferteMieszkania(scanner, listaOfert);
-                    break;
-                case 3:
-                    wyswietlAktualneOfertyDomow(listaOfert);
-                    break;
-                case 4:
-                    wyswietlAktualneOfertyMieszkan(listaOfert);
-                    break;
-                case 5:
-                    wyswietlAktualneOfertyDomowWgMiejscowosciIPowierzchni(scanner, listaOfert);
-                    break;
-                case 6:
-                    wyswietlAktualneOfertyMieszkanWgMiejscowosciCenyIPietra(scanner, listaOfert);
-                    break;
-                case 7:
+                case 1 -> dodajOferteDomu(scanner, listaOfert);
+                case 2 -> dodajOferteMieszkania(scanner, listaOfert);
+                case 3 -> wyswietlAktualneOfertyDomow(listaOfert);
+                case 4 -> wyswietlAktualneOfertyMieszkan(listaOfert);
+                case 5 -> wyswietlAktualneOfertyDomowWgMiejscowosciIPowierzchni(scanner, listaOfert);
+                case 6 -> wyswietlAktualneOfertyMieszkanWgMiejscowosciCenyIPietra(scanner, listaOfert);
+                case 7 -> {
                     flag = false;
-                    System.out.println("Dziękujemy za korzystanie z programu!");
-                    break;
-                default:
-                    System.out.println("Nieprawidłowy wybór. Spróbuj ponownie.");
+                    System.out.println("Żegnamy!");
+                }
+                default -> System.out.println("Nieprawidłowy wybór. Spróbuj ponownie.");
+            }
             }
         }
     }
