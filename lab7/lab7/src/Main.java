@@ -1,10 +1,10 @@
 import java.time.LocalDate;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void wyswietlOferty(String opis, List<Oferta> oferty) {
+    public static void wyswietlOferty(String opis, ArrayList<Oferta> oferty) {
         System.out.println(opis);
         oferty.forEach(System.out::println);
         System.out.println();
@@ -81,12 +81,12 @@ public class Main {
     }
 
     public static void wyswietlAktualneOfertyDomow(ListaOfert listaOfert) {
-        List<Oferta> ofertyDomow = listaOfert.filtrujOferty(oferta -> oferta instanceof Dom && oferta.getDataObowiazywaniaOferty().isAfter(LocalDate.now()) || oferta.getDataObowiazywaniaOferty().isEqual(LocalDate.now()));
+        ArrayList<Oferta> ofertyDomow = listaOfert.filtrujOferty(oferta -> oferta instanceof Dom && oferta.getDataObowiazywaniaOferty().isAfter(LocalDate.now()) || oferta.getDataObowiazywaniaOferty().isEqual(LocalDate.now()));
         wyswietlOferty("Wszystkie aktualne oferty sprzedaży domów:", ofertyDomow);
     }
 
     public static void wyswietlAktualneOfertyMieszkan(ListaOfert listaOfert) {
-        List<Oferta> ofertyMieszkan = listaOfert.filtrujOferty(oferta -> oferta instanceof Mieszkanie && oferta.getDataObowiazywaniaOferty().isAfter(LocalDate.now()) || oferta.getDataObowiazywaniaOferty().isEqual(LocalDate.now()));
+        ArrayList<Oferta> ofertyMieszkan = listaOfert.filtrujOferty(oferta -> oferta instanceof Mieszkanie && oferta.getDataObowiazywaniaOferty().isAfter(LocalDate.now()) || oferta.getDataObowiazywaniaOferty().isEqual(LocalDate.now()));
         wyswietlOferty("Wszystkie aktualne oferty sprzedaży mieszkań:", ofertyMieszkan);
     }
 
@@ -97,7 +97,7 @@ public class Main {
         double powierzchnia = scanner.nextDouble();
         scanner.nextLine();
 
-        List<Oferta> ofertyDomow = listaOfert.filtrujOferty(oferta -> oferta instanceof Dom && oferta.getMiejscowosc().equals(miejscowosc) && oferta.getPowierzchnia() >= powierzchnia && oferta.getDataObowiazywaniaOferty().isAfter(LocalDate.now()) || oferta.getDataObowiazywaniaOferty().isEqual(LocalDate.now()));
+        ArrayList<Oferta> ofertyDomow = listaOfert.filtrujOferty(oferta -> oferta instanceof Dom && oferta.getMiejscowosc().equals(miejscowosc) && oferta.getPowierzchnia() >= powierzchnia && oferta.getDataObowiazywaniaOferty().isAfter(LocalDate.now()) || oferta.getDataObowiazywaniaOferty().isEqual(LocalDate.now()));
         wyswietlOferty("Wszystkie aktualne oferty sprzedaży domów w miejscowości '" + miejscowosc + "' o powierzchni nie mniejszej niż " + powierzchnia + "m²:", ofertyDomow);
     }
 
@@ -110,7 +110,7 @@ public class Main {
         int numerPietra = scanner.nextInt();
         scanner.nextLine();
 
-        List<Oferta> ofertyMieszkan = listaOfert.filtrujOferty(oferta -> oferta instanceof Mieszkanie && oferta.getMiejscowosc().equals(miejscowosc) && oferta.getCena() <= cena && ((Mieszkanie) oferta).getNumerPietra() >= numerPietra && oferta.getDataObowiazywaniaOferty().isAfter(LocalDate.now()) || oferta.getDataObowiazywaniaOferty().isEqual(LocalDate.now()));
+        ArrayList<Oferta> ofertyMieszkan = listaOfert.filtrujOferty(oferta -> oferta instanceof Mieszkanie && oferta.getMiejscowosc().equals(miejscowosc) && oferta.getCena() <= cena && ((Mieszkanie) oferta).getNumerPietra() >= numerPietra && oferta.getDataObowiazywaniaOferty().isAfter(LocalDate.now()) || oferta.getDataObowiazywaniaOferty().isEqual(LocalDate.now()));
         wyswietlOferty("Wszystkie aktualne oferty sprzedaży mieszkań w miejscowości '" + miejscowosc + "' nie droższych niż " + cena + " PLN i od piętra " + numerPietra + " wzwyż:", ofertyMieszkan);
     }
 
@@ -142,4 +142,3 @@ public class Main {
             }
         }
     }
-}

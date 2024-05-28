@@ -1,11 +1,10 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 class ListaOfert {
-    private List<Oferta> oferty;
+    private ArrayList<Oferta> oferty;
 
     public ListaOfert() {
         oferty = new ArrayList<>();
@@ -15,8 +14,8 @@ class ListaOfert {
         oferty.add(oferta);
     }
 
-    public List<Oferta> filtrujOferty(Predicate<Oferta> predykat) {
-        return oferty.stream().filter(predykat).collect(Collectors.toList());
+    public ArrayList<Oferta> filtrujOferty(Predicate<Oferta> predykat) {
+        return oferty.stream().filter(predykat).collect(Collectors.toCollection(ArrayList::new));
     }
 
     public void dodajPrzykladoweOferty() {
